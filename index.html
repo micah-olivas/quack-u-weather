@@ -14,9 +14,21 @@
     </div>
 
     <div id="app">
-        <!-- Removed the h2 element -->
+        <div id="location"></div>
+        <div id="loading-message">
+            <div id="loading-circle"></div>
+            Fetching prediction
+        </div>
+        <div id="traffic-lights">
+            <div class="light" id="light-1"></div>
+            <div class="light" id="light-2"></div>
+            <div class="light" id="light-3"></div>
+            <div class="light" id="light-4"></div>
+            <div class="light" id="light-5"></div>
+        </div>
+        <div id="message-container"></div>        
         <button onclick="getPrediction()">Predict</button>
-        <p id="result"></p>
+        
     </div>
 
     <div id="credits"></div>

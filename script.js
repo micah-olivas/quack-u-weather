@@ -42,61 +42,70 @@ document.addEventListener('DOMContentLoaded', (event) => {
 function getPrediction() {
     const logoContainer = document.getElementById('logo-container');
     const appBox = document.getElementById('app');
-    const outputDiv = document.getElementById('output');
     const locationDiv = document.getElementById('location');
     const loadingMessage = document.getElementById('loading-message');
     
     logoContainer.style.transform = 'translateY(-50px)';
     
-    // Display the location and show the loading message
+    // Display the location and initiate fade-in
     locationDiv.innerHTML = 'Wasco, CA \n<span style="font-family: Menlo, monospace;">(35.5941° N, 119.3409° W)</span>';
-    loadingMessage.style.display = 'block';
-    
-    // Transition to a specified max-height
-    appBox.style.transition = 'max-height 0.5s ease-in-out';
-    appBox.style.maxHeight = '500px';
-    
-    // Simulate fetching prediction
     setTimeout(() => {
-        loadingMessage.style.display = 'none';
-        
-        // Manually set the predictionValue for testing
-        const predictionValue = 5;
-        
-        // Show the traffic lights once the prediction is received
-        document.getElementById('traffic-lights').style.visibility = 'visible';
-        
-        // Light up the traffic lights based on the predictionValue
-        for (let i = 1; i <= predictionValue; i++) {
-            document.getElementById(`light-${i}`).classList.add('active');
-        }
-        
-        // Display the message based on the predictionValue
-        const messageContainer = document.getElementById('message-container');
-        let message = '';
-        let color = '';  // new variable to hold the color value
-        switch (predictionValue) {
-            case '1': 
-                message = 'Poor Prediction';
-                color = 'red';  // color red for poor prediction
-                break;
-            case '2': case '3': 
-                message = 'Fair Prediction';
-                color = 'yellow';  // color yellow for fair prediction
-                break;
-            case '4': case '5': 
-                message = 'Good Prediction';
-                color = 'green';  // color green for good prediction
-                break;
-            default: 
-                message = 'No Prediction Available';
-                color = 'gray';  // color gray for no prediction available
-                break;
-        }
-        messageContainer.textContent = message;
-        messageContainer.style.color = color;  // set the color of the message text
-        messageContainer.classList.add('active');
-    }, 1000);
+        locationDiv.classList.add('fade-in');
+
+        // Show the loading message and initiate fade-in
+        loadingMessage.style.display = 'block';
+        setTimeout(() => {
+            loadingMessage.classList.add('fade-in');
+
+            // Simulate fetching prediction
+            setTimeout(() => {
+                loadingMessage.classList.remove('fade-in');
+
+                // Manually set the predictionValue for testing
+                const predictionValue = 5;
+                
+                // Show the traffic lights once the prediction is received and initiate fade-in
+                document.getElementById('traffic-lights').style.visibility = 'visible';
+                setTimeout(() => {
+                    for (let i = 1; i <= predictionValue; i++) {
+                        document.getElementById(`light-${i}`).classList.add('active');
+                    }
+
+                    // Display the message based on the predictionValue and initiate fade-in
+                    const messageContainer = document.getElementById('message-container');
+                    let message = '';
+                    let color = '';  // new variable to hold the color value
+                    switch (predictionValue) {
+                        case '1': 
+                            message = 'Poor Prediction';
+                            color = 'red';  // color red for poor prediction
+                            break;
+                        case '2': case '3': 
+                            message = 'Fair Prediction';
+                            color = 'yellow';  // color yellow for fair prediction
+                            break;
+                        case '4': case '5': 
+                            message = 'Good Prediction';
+                            color = 'green';  // color green for good prediction
+                            break;
+                        default: 
+                            message = 'No Prediction Available';
+                            color = 'gray';  // color gray for no prediction available
+                            break;
+                    }
+                    messageContainer.textContent = message;
+                    messageContainer.style.color = color;  // set the color of the message text
+                    setTimeout(() => {
+                        messageContainer.classList.add('fade-in');
+                    }, 500);
+
+                }, 500);
+
+            }, 1000);  // Assuming fetching takes 1 second
+
+        }, 500);
+
+    }, 500);  // Delay before starting the sequence
 }
 
 window.onload = function() {

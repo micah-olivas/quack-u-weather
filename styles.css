@@ -101,3 +101,23 @@ button:hover {
     box-sizing: border-box;
     text-align: left;
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {  /* Adjusting for typical mobile screen width */
+    button {
+        padding: 10px 10px;  /* Increased padding for larger touch area */
+        font-size: 1.2rem;  /* Increased font size for better visibility */
+    }
+
+    #app {
+        padding: 10px;  /* Increased padding for spacing */
+    }
+
+    #logo {
+        max-width: 90%;  /* Adjust logo size if necessary */
+    }
+    
+    #credits {
+        font-size: 0.7rem;  /* Adjust credits font size if necessary */
+    }
+}

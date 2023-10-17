@@ -1,25 +1,47 @@
 /* styles.css */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+#container {
+    text-align: center;
+    max-width: 200px;
+    width: 100%;
+}
+
+#logo-container {
+    animation: fadeIn 1s 0.5s forwards;
+}
+
+#logo {
+    width: 100%;
 }
 
 #app {
     background-color: #fff;
-    padding: 20px;
+    padding: 10px;  /* Adjusted padding to be uniform */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     text-align: center;
-}
-
-#logo {
-    width: 200px;
-    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 1s 1s forwards;
+    width: 100%;
+    margin-top: 20px;
 }
 
 button {
@@ -29,8 +51,42 @@ button {
     background-color: #008CBA;
     color: #fff;
     cursor: pointer;
+    width: 100%;
+    margin: 0;  /* Ensured no margin is applied */
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 1rem;
 }
 
 button:hover {
     background-color: #005f5f;
+}
+
+#container {
+    text-align: center;
+    max-width: 200px;
+    width: 100%;
+    position: relative;
+    display: flex;  /* Added to enable flexbox */
+    flex-direction: column;  /* Added to organize child elements in a column */
+    align-items: center;  /* Added to center child elements horizontally */
+}
+
+#credits {
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    right: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    color: #696969;
+    white-space: pre-wrap;
+    overflow: hidden;
+    /* Removed border-right property */
+    width: 100%;
+    box-sizing: border-box;
+    /* center */
+    display: flex;
 }

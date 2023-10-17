@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Predictive Model App</title>
+    <title>Quack-U-Weater</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div id="app">
-    <img src="logo.png" alt="Your Logo" id="logo">
-    <button onclick="getPrediction()">Predict</button>
-    <p id="result"></p>
+<div id="container">
+    <div id="logo-container">
+        <img src="logo.png" alt="Your Logo" id="logo">
+    </div>
+
+    <div id="app">
+        <!-- Removed the h2 element -->
+        <button onclick="getPrediction()">Predict</button>
+        <p id="result"></p>
+    </div>
+
+    <div id="credits"></div>
 </div>
 
 <script src="script.js"></script>

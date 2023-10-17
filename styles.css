@@ -1,6 +1,6 @@
 /* styles.css */
 body {
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif; /* Changed font to Helvetica */
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
@@ -32,7 +32,7 @@ body {
     width: 100%;
 }
 
-#app {
+#app {   
     background-color: #fff;
     padding: 10px;  /* Adjusted padding to be uniform */
     border-radius: 8px;
@@ -42,9 +42,11 @@ body {
     animation: fadeIn 1s 1s forwards;
     width: 100%;
     margin-top: 20px;
+    transition: height 0.5s ease-in-out; /* Added transition for height */
 }
 
 button {
+    font-family: Helvetica, Arial, sans-serif; /* Changed font to Helvetica */
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -89,4 +91,13 @@ button:hover {
     box-sizing: border-box;
     /* center */
     display: flex;
+}
+
+#output {
+    display: none; /* Hide by default */
+    padding: 10px;
+    background-color: #f0f0f0; /* Light grey background */
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
 }

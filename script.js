@@ -10,6 +10,25 @@ function type() {
     }
 }
 
+function randomBobbing() {
+    const logoContainer = document.getElementById('logo-container');
+    const maxX = 5;  // Maximum horizontal displacement (pixels)
+    const maxY = 5;  // Maximum vertical displacement (pixels)
+    const maxDuration = 3;  // Maximum duration (seconds)
+    
+    // Generate random displacement and duration
+    const x = Math.random() * maxX * (Math.random() < 0.4 ? 1 : -1);
+    const y = Math.random() * maxY * (Math.random() < 0.4 ? 1 : -1);
+    const duration = Math.random() * maxDuration;
+    
+    // Apply the new transformation and transition duration
+    logoContainer.style.transform = `translate(${x}px, ${y}px)`;
+    logoContainer.style.transitionDuration = `${duration}s`;
+    
+    // Set up the next bobbing event
+    setTimeout(randomBobbing, duration * 1000);
+}
+
 document.addEventListener('DOMContentLoaded', (event) => {
     let today = new Date().toLocaleDateString('en-US', {
         year: 'numeric',
@@ -27,4 +46,14 @@ async function getPrediction() {
     
     let result = await response.json();
     document.getElementById('result').innerText = 'Prediction: ' + result.prediction;
+
+    // Show the output div and populate it with the prediction results
+    const outputDiv = document.getElementById('output');
+    outputDiv.style.display = 'block'; // Show the div
+    outputDiv.textContent = 'Your prediction results go here'; // Replace this with your prediction results
 }
+
+window.onload = function() {
+    /* ... (previous script) ... */
+    randomBobbing();  // Start random bobbing
+};

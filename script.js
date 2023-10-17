@@ -14,7 +14,7 @@ function randomBobbing() {
     const logoContainer = document.getElementById('logo-container');
     const maxX = 6;  // Maximum horizontal displacement (pixels)
     const maxY = 6;  // Maximum vertical displacement (pixels)
-    const maxDuration = 6;  // Maximum duration (seconds)
+    const maxDuration = 4;  // Maximum duration (seconds)
     
     // Generate random displacement and duration
     const x = Math.random() * maxX * (Math.random() < 0.4 ? 1 : -1);
